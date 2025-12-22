@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Isoken, Across Every Mile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <!-- Welcome Screen -->
+  <section id="welcome">
+    <div class="welcome-content">
+      <h1>To Isoken, Across Every Mile</h1>
+      <p>Every photo, every smile, every memory — this is for you.</p>
+      <button onclick="enterSite()">Enter Our World</button>
+    </div>
+  </section>
+
+  <!-- Background Music -->
+  <div id="music-container" style="display: none;">
+    <iframe width="0" height="0"
+      src="https://www.youtube.com/embed/u2ah9tWTkmk?autoplay=1&loop=1&playlist=u2ah9tWTkmk"
+      frameborder="0"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Slideshow -->
+  <section id="slideshow" class="hidden">
+    <div class="slideshow-container">
+      <img class="slide" src="images/4c46cb90cff747b682618da0b2a9e2c7.jpg" alt="Slide 1">
+      <img class="slide" src="images/88d5a3d9995d40ac946723e90fda7dc0.jpg" alt="Slide 2">
+      <img class="slide" src="images/IMG-20250730-WA0020.jpg" alt="Slide 3">
+      <img class="slide" src="images/IMG-20250731-WA0047.jpg" alt="Slide 4">
+      <img class="slide" src="images/IMG-20250731-WA0056.jpg" alt="Slide 5">
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="hidden">
+    <h2>Moments with You</h2>
+
+    <div class="love-letter">
+      <p><strong>My Dearest Isoken,</strong></p>
+      <p>From the very first moment our paths crossed, something in me shifted — like the universe paused to whisper, “This is the one.” You are the melody in my silence, the calm in my chaos, the light that finds me even in the darkest corners of my mind. Every smile you share is a sunrise in my soul. Every laugh, a song I never want to stop hearing.</p>
+      <p>I made this space for you — a place where every photo is a memory, every caption a whisper of my heart. I want you to see what I see: a woman whose beauty radiates from within, whose strength inspires me daily, and whose love has changed me in ways I never thought possible.</p>
+      <p>No matter the distance, no matter the time, my love for you only grows. This site is just a small reflection of the infinite ways I adore you. I hope every image reminds you how cherished you are, and how deeply, endlessly, and truly I love you.</p>
+      <p>Always yours,<br><strong>Caesar</strong></p>
+    </div>
+
+    <div class="gallery-grid">
+      <figure><img src="images/4c46cb90cff747b682618da0b2a9e2c7.jpg"><figcaption>This smile could light up galaxies.</figcaption></figure>
+      <figure><img src="images/88d5a3d9995d40ac946723e90fda7dc0.jpg"><figcaption>Caught in a moment of grace — you, effortlessly glowing.</figcaption></figure>
+      <figure><img src="images/IMG-20250730-WA0020.jpg"><figcaption>Every time I see this, I fall in love all over again.</figcaption></figure>
+      <figure><img src="images/IMG-20250731-WA0047.jpg"><figcaption>You don’t just wear beauty — you embody it.</figcaption></figure>
+      <figure><img src="images/IMG-20250731-WA0056.jpg"><figcaption>A queen in her element. Regal, radiant, real.</figcaption></figure>
+      <figure><img src="images/IMG-20251111-WA0157.jpg"><figcaption>This is how I see you — strong, stunning, unstoppable.</figcaption></figure>
+      <figure><img src="images/IMG-20251111-WA0159.jpg"><figcaption>A thousand poems couldn’t capture this moment.</figcaption></figure>
+      <figure><img src="images/b1a0127c7f8346f09d983223a3e9aa16.jpg"><figcaption>Even in stillness, you move me.</figcaption></figure>
+      <figure><img src="images/c461919ea177d4249c88ceb219f9cca3.jpg"><figcaption>You are art. You are poetry. You are home.</figcaption></figure>
+      <figure><img src="images/f510191c6a3a4c529138286a9214d101.jpg"><figcaption>This is the face I dream of, the heart I live for.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- Reasons I Love You -->
+  <section id="reasons" class="hidden">
+    <h2>20 Reasons I Love You</h2>
+    <ul class="reasons-list">
+      <li>You make me laugh even on my worst days.</li>
+      <li>Your smile is my favorite sunrise.</li>
+      <li>You believe in me when I doubt myself.</li>
+      <li>You’re my calm in every storm.</li>
+      <li>You listen with your heart, not just your ears.</li>
+      <li>You’re effortlessly beautiful — inside and out.</li>
+      <li>You make ordinary moments feel magical.</li>
+      <li>You challenge me to grow and be better.</li>
+      <li>Your hugs feel like home.</li>
+      <li>You see the best in me, even when I can’t.</li>
+      <li>You’re my biggest fan and fiercest protector.</li>
+      <li>You love me in ways I never knew I needed.</li>
+      <li>Your voice is my favorite sound.</li>
+      <li>You’re my peace, my fire, my forever.</li>
+      <li>You make love feel easy and real.</li>
+      <li>You’re the first person I want to tell everything to.</li>
+      <li>You make me proud every single day.</li>
+      <li>You’re my dream come true.</li>
+      <li>You’ve taught me what true love really means.</li>
+      <li>Because you’re you — and that’s more than enough.</li>
+    </ul>
+  </section>
+
+  <script>
+    function enterSite() {
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('slideshow').classList.remove('hidden');
+      document.getElementById('gallery').classList.remove('hidden');
+      document.getElementById('reasons').classList.remove('hidden');
+      document.getElementById('music-container').style.display = 'block';
+      startSlideshow();
+    }
+
+    let slideIndex = 0;
+    function startSlideshow() {
+      const slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(startSlideshow, 4000);
+    }
+  </script>
+
+</body>
+  </html>
