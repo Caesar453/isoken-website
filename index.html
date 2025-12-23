@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>To Isoken, Across Every Mile</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Dark Mode Toggle -->
+  <button class="toggle-dark" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
   <!-- Welcome Screen -->
   <section id="welcome">
@@ -30,7 +34,7 @@
   <!-- Slideshow -->
   <section id="slideshow" class="hidden">
     <div class="slideshow-container">
-      <img class="slide" src="images/4c46cb90cff747b682618da0b2a9e2c7.jpg" alt="Slide 1">
+      <img class="slide active" src="images/4c46cb90cff747b682618da0b2a9e2c7.jpg" alt="Slide 1">
       <img class="slide" src="images/88d5a3d9995d40ac946723e90fda7dc0.jpg" alt="Slide 2">
       <img class="slide" src="images/IMG-20250730-WA0020.jpg" alt="Slide 3">
       <img class="slide" src="images/IMG-20250731-WA0047.jpg" alt="Slide 4">
@@ -51,16 +55,7 @@
     </div>
 
     <div class="gallery-grid">
-      <figure><img src="images/4c46cb90cff747b682618da0b2a9e2c7.jpg"><figcaption>This smile could light up galaxies.</figcaption></figure>
-      <figure><img src="images/88d5a3d9995d40ac946723e90fda7dc0.jpg"><figcaption>Caught in a moment of grace — you, effortlessly glowing.</figcaption></figure>
-      <figure><img src="images/IMG-20250730-WA0020.jpg"><figcaption>Every time I see this, I fall in love all over again.</figcaption></figure>
-      <figure><img src="images/IMG-20250731-WA0047.jpg"><figcaption>You don’t just wear beauty — you embody it.</figcaption></figure>
-      <figure><img src="images/IMG-20250731-WA0056.jpg"><figcaption>A queen in her element. Regal, radiant, real.</figcaption></figure>
-      <figure><img src="images/IMG-20251111-WA0157.jpg"><figcaption>This is how I see you — strong, stunning, unstoppable.</figcaption></figure>
-      <figure><img src="images/IMG-20251111-WA0159.jpg"><figcaption>A thousand poems couldn’t capture this moment.</figcaption></figure>
-      <figure><img src="images/b1a0127c7f8346f09d983223a3e9aa16.jpg"><figcaption>Even in stillness, you move me.</figcaption></figure>
-      <figure><img src="images/c461919ea177d4249c88ceb219f9cca3.jpg"><figcaption>You are art. You are poetry. You are home.</figcaption></figure>
-      <figure><img src="images/f510191c6a3a4c529138286a9214d101.jpg"><figcaption>This is the face I dream of, the heart I live for.</figcaption></figure>
+      <!-- Add your images and captions here -->
     </div>
   </section>
 
@@ -91,6 +86,7 @@
     </ul>
   </section>
 
+  <!-- Scripts -->
   <script>
     function enterSite() {
       document.getElementById('welcome').style.display = 'none';
@@ -105,12 +101,26 @@
     function startSlideshow() {
       const slides = document.getElementsByClassName("slide");
       for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].classList.remove("active");
       }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
+      slideIndex = (slideIndex + 1 > slides.length) ? 1 : slideIndex + 1;
+      slides[slideIndex - 1].classList.add("active");
       setTimeout(startSlideshow, 4000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 500);
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
     }
   </script>
 
